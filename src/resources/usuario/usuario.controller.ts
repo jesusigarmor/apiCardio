@@ -28,9 +28,9 @@ class UsuarioController implements Controller {
         next: NextFunction
     ): Promise<Response | void> => {
         try {
-            const { correoElectronico, contrasena } = req.body;
+            const { correoElectronico, contrasena, nombre, apellido, cedulaProfesional, telefono } = req.body;
 
-            const usuario = await this.UsuarioService.create(correoElectronico,contrasena);
+            const usuario = await this.UsuarioService.create(correoElectronico,contrasena,nombre,apellido,cedulaProfesional,telefono);
 
             res.status(201).json({usuario});
         } catch (error: any) {

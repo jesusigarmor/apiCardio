@@ -7,9 +7,20 @@ class UsuarioService {
     /**
      * Crea a un nuevo usuario
      */
-    public async create(correoElectronico: string, contrasena: string): Promise<Usuario> {
+    public async create(
+        nombre: string,
+        apellido: string,
+        cedulaProfesional: string,
+        correoElectronico: string,
+        telefono: string,
+        contrasena: string
+    ): Promise<Usuario> {
         try {
             const nuevoUsuario = await this.usuario.create({
+                nombre,
+                apellido,
+                cedulaProfesional,
+                telefono,
                 correoElectronico,
                 contrasena
             });
